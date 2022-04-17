@@ -25,7 +25,7 @@ router.post('/add', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    const tasks = await pool.query('SELECT * FROM tareas');
+    const tasks = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s');
     res.render('tasks/list', { tasks })
 })
 

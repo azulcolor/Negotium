@@ -2,15 +2,13 @@
     <div class="row">
 
         {{#each tasks}}
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <a href="">
-                            <h3 class="card-title text-uppercase">
-                                {{tarea}}
-                            </h3>
-                        </a>
-                    </div>
+            <div class="card text-white bg-dark mb-3 m-3" style="max-width: 18rem;">
+                <div class="card-header">{{nombreUsuario}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{tarea}}</h5>
+                    <p class="card-text">{{descripcion}}</p>
+                    <p class="card-text text-uppercase">Estado: {{status}}</p>
+                    <p class="card-text text-uppercase">Importancia: {{importancia}}</p>
                 </div>
             </div>
         {{/each}}
