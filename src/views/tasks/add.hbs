@@ -1,0 +1,51 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/tasks/add" method="POST">
+                        <div class="form-group">
+                            <label>Nombre de la tarea</label>
+                            <input type="text" class="form-control" name="taskName" placeholder="Nombre de la tarea" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha límite</label>
+                            <input type="date" class="form-control" name="date"  >
+                        </div>
+                        <div class="form-group">
+                            <label>Usuario a realizar la tarea</label>
+                            
+                            <select name="user" class="form-control">
+                                {{#each users}}
+                                    <option value= "{{idUsuario}}" >{{nombreUsuario}}</option>  
+                                {{/each}}
+                            </select>
+                            
+                                    
+                        </div>
+                        <div class="form-group">
+                            <label>Descripcion</label>
+                            <textarea name="description" rows="4" class="form-control" placeholder="Descripción"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Importancia</label>
+                            <select name="importance" class="form-control">
+                                <option value="Baja">Baja</option>
+                                <option value="Normal" selected="selected">Normal</option>
+                                <option value="Alta">Alta</option>
+                                <option value="Urgente">Urgente</option>
+                                <option value="Inmediata">Inmediata</option>
+                            </select>
+                            <div class=" p-2 d-grid gap-2">
+                                <button class=" t-2  btn btn-outline-success ">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
