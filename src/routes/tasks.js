@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
 const pool = require('../database');
+
 
 router.get('/add', async function (req, res) {
     const users = await pool.query('SELECT * FROM usuario')
@@ -21,12 +21,25 @@ router.post('/add', async (req, res) => {
     }
     
     await pool.query('INSERT INTO tareas set ?', [newTask]);
-    res.send('received');
+    res.redirect('/tasks');
 })
 
 router.get('/', async (req, res) => {
-    const tasks = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s');
-    res.render('tasks/list', { tasks })
-})
+    const tasksStatus1 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s ');
+    const tasksStatus2 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=2');
+    const tasksStatus3 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=3');
+    const tasksStatus4 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=4');
+    res.render('tasks/list', { tasksStatus1, tasksStatus2, tasksStatus3, tasksStatus4 })
+});
+router.get('/task/:idTarea', async (req, res) => {
+    const {idTarea} = req.params;
+    const idTask = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s WHERE idTarea = ?',[idTarea]);
+    const date = await pool.query(`SELECT fechaCreacion FROM tareas WHERE idTarea = ?`, [idTarea] );
+    res.render('tasks/taskid', {idTask, date} );
+});
+router.get('delete/:id', async (req, res)=>{
+    console.log(req.params.idTarea);
+    res.send('eliminado');
+});
 
 module.exports = router;

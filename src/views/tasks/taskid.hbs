@@ -1,0 +1,25 @@
+<div>
+                     
+                    {{#each idTask}}
+                    <a href="/tasks/task/{{idTarea}}" >
+                    <div class="card text-white bg-dark m-2 row" style="max-width: 18rem;">
+                        <div class="card-header">{{nombreUsuario}}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{tarea}}</h5>
+                            <p class="card-text"> Creación: {{moment fechaCreacion }}</p>
+                            <p class="card-text">{{descripcion}}</p>
+                            <p class="card-text text-uppercase">Estado: {{status}}</p>
+                            <p class="card-text text-uppercase">Importancia: {{importancia}}</p>
+                            <p class="card-text"> Fecha límite: {{moment fechaExpiracion }}</p>
+                            <p class="card-text text-uppercase">Quedan {{timeago fechaExpiracion}}</p>
+                        </div>
+                    </div>
+                    </a> 
+                    {{/each}}
+</div>
+                           
+
+
+
+
+
