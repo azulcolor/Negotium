@@ -50,16 +50,18 @@ router.get('/update/:idTarea', async (req, res)=>{
 });
 router.post('/update/:idTarea', async (req, res) => {
     const {idTarea} = req.params;
-    const { taskName, date, user, description, importance, status } = req.body;
+    
+    const { date, user, description, importance, status } = req.body;
+    console.log(date);
     const upTask = {
-        tarea:taskName, 
         fechaExpiracion:date, 
         idUsuario: user,
         descripcion:description,
         importancia:importance,
         idStatus: status
     }
-    
-})
+    await pool.query('UPDATE tareas SET ? WHERE idTarea = ?',[upTask, idTarea]);
+    res.redirect('/tasks');
+});
 
 module.exports = router;

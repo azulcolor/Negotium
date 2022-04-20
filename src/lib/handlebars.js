@@ -29,7 +29,23 @@ helpers.moment = (timestamp) => {
     let result = `${date}/${month}/${year}`;
     return result;
 };
+helpers.convert = (timestamp) => {
+    
+    let month = timestamp.getMonth() + 1;
+    let year = timestamp.getFullYear();
+    let date = timestamp.getDate();
+if( date <10){
+    date = '0'+date;
+}
+    if(month<10)
+{   
 
+    month = '0'+month;
+
+}
+    let result = `${year}-${month}-${date}`;
+    return result;
+};
 helpers.timeago = (timestamp) => {
     
     return timeago(timestamp);
