@@ -34,6 +34,14 @@ helpers.timeago = (timestamp) => {
     
     return timeago(timestamp);
 
-};
+}
+
+helpers.actualDate = () => {
+
+    let date = new Date();
+    let output = String(date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + date.getDate()).padStart(2, '0');
+    
+    return output;
+}
 
 module.exports = helpers;
