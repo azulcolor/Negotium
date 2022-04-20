@@ -18,8 +18,8 @@
                             <button class="text-black btn btn-primary m-1 col-3 align-self-center">
                                <a class="text-white" href="/tasks/update/{{idTarea}}">Editar</a>
                            </button> 
-                           <button class="btn btn-danger m-1 col-3 align-self-center">
-                               <a class="text-white" href="/tasks/delete/{{idTarea}}">Eliminar</a>
+                           <button type="button" onclick="del({{idTarea}})" class="btn btn-danger m-1 col-3 align-self-center" >
+                               <a onclick="del({{idTarea}})">Guías</a>
                            </button> 
                            
                        
@@ -30,6 +30,21 @@
         </div>
     </div>
 </div> 
+
+    <script>
+
+        function del(id) {
+
+            if(confirm('¿Seguro que quieres eliminar esta tarea?')){
+                window.location.href = "/tasks/delete/" + id;
+
+
+                }
+            
+                        }
+        
+    </script>
+    
     
 
 
