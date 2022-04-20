@@ -48,20 +48,18 @@ router.get('/update/:idTarea', async (req, res)=>{
      const users = await pool.query('SELECT * FROM usuario');
     res.render('tasks/edit', {taskedit: taskedit[0], users} );
 });
-router.post('/add', async (req, res) => {
-    const { taskName, date, user, description, importance } = req.body;
-    const newTask = { 
-        
+router.post('/update/:idTarea', async (req, res) => {
+    const {idTarea} = req.params;
+    const { taskName, date, user, description, importance, status } = req.body;
+    const upTask = {
         tarea:taskName, 
         fechaExpiracion:date, 
         idUsuario: user,
         descripcion:description,
         importancia:importance,
-        idStatus: 1
+        idStatus: status
     }
     
-    await pool.query('INSERT INTO tareas set ?', [newTask]);
-    res.redirect('/tasks');
 })
 
 module.exports = router;

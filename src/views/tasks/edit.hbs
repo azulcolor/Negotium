@@ -3,14 +3,14 @@
         <div class="col-md-4 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form action="/tasks/edit/{{taskedit.idTarea}}" method="POST">
+                    <form action="/tasks/update/{{taskedit.idTarea}}" method="POST">
                         <div class="form-group">
                             <label>Nombre de la tarea</label>
-                            <input type="text" value="{{taskedit.tarea}}" class="form-control" name="taskName"  autofocus disabled>
+                            <input type="text" value="{{taskedit.tarea}}" class="form-control" name="taskName"  autofocus disable>
                         </div>
                         <div class="form-group">
                             <label>Fecha límite</label>
-                            <input type="date" class="form-control" name="date"  >
+                            <input type="date" class="form-control" name="date" min="2022-04-18"  >
                         </div>
                         <div class="form-group">
                             <label>Usuario a realizar la tarea</label>
