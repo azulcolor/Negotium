@@ -21,6 +21,7 @@ router.post('/add', async (req, res) => {
     }
     
     await pool.query('INSERT INTO tareas set ?', [newTask]);
+    req.flash('success', 'La tarea ha sido creada');
     res.redirect('/tasks');
 })
 
@@ -29,6 +30,7 @@ router.get('/', async (req, res) => {
     const tasksStatus2 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=2');
     const tasksStatus3 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=3');
     const tasksStatus4 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=4');
+
     res.render('tasks/list', { tasksStatus1, tasksStatus2, tasksStatus3, tasksStatus4 })
 });
 router.get('/task/:idTarea', async (req, res) => {
@@ -38,9 +40,13 @@ router.get('/task/:idTarea', async (req, res) => {
     res.render('tasks/taskid', {idTask, date} );
 });
 router.get('/delete/:idTarea', async (req, res)=>{
+    
+
     const { idTarea } = req.params;
     await pool.query('DELETE FROM tareas WHERE idTarea=?',[idTarea])
+    req.flash('success', 'La tarea ha sido eliminada');
     res.redirect('/tasks');
+    
 });
 router.get('/update/:idTarea', async (req, res)=>{
     const {idTarea} = req.params;
@@ -48,6 +54,14 @@ router.get('/update/:idTarea', async (req, res)=>{
      const users = await pool.query('SELECT * FROM usuario');
     res.render('tasks/edit', {taskedit: taskedit[0], users} );
 });
+
+router.post('/', async (req, res) => {
+
+    const fechaExpiracion = await pool.query('SELECT descripcion FROM tareas')
+    console.log(fechaExpiracion)
+    
+})
+
 router.post('/update/:idTarea', async (req, res) => {
     const {idTarea} = req.params;
     
@@ -61,6 +75,7 @@ router.post('/update/:idTarea', async (req, res) => {
         idStatus: status
     }
     await pool.query('UPDATE tareas SET ? WHERE idTarea = ?',[upTask, idTarea]);
+    req.flash('success', 'La tarea ha sido actualizada');
     res.redirect('/tasks');
 });
 
