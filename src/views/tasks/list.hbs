@@ -1,22 +1,38 @@
 
+<div class="col-md-3 mx-auto">
+ <div class="card card-body text-center">     
+       <a class="text-black" href="/tasks/add">Crea una Tarea</a>
+  </div>
+ </div>
 <div class="container">
    <div class="row">
+        <div class="col">
+                 <div >
+                     <h3>notas</h3>
+                    {{#each tasksStatus1}}
+                    <a href="/tasks/task/{{idTarea}}" >
+                   
+                    </a>  
+                    {{/each}}
+  
+                </div>
+                <div>
+            
+            </div>
+        </div>
        <div class="col">
                  <div>
                      <h3>POR HACER</h3>
                     {{#each tasksStatus1}}
                     <a href="/tasks/task/{{idTarea}}" >
-                    <div class="card text-white bg-dark m-2 row" style="max-width: 18rem;">
+                    <div class="card text-black bg-light m-2 row" style="max-width: 18rem;">
                         <div class="card-header">{{nombreUsuario}}</div>
                         <div class="card-body">
                             <h5 class="card-title">{{tarea}}</h5>
-                            <p class="card-text text-uppercase">Importancia: {{importancia}}</p>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    </a> 
+                            <p class="card-text text-uppercase">Importancia: {{importancia}}</p>  
+                        </div>  
+                    </div> 
+                    </a>  
                     {{/each}}
   
                 </div>
@@ -29,7 +45,7 @@
                      <H3>EN PROCESO</H3>
                     {{#each tasksStatus2}}
                     <a href="/tasks/task/{{idTarea}}" >
-                    <div class="card text-white bg-dark m-2 row" style="max-width: 18rem;">
+                    <div class="card text-black bg-light m-2 row" style="max-width: 18rem;">
                         <div class="card-header">{{nombreUsuario}}</div>
                         <div class="card-body">
                             <h5 class="card-title">{{tarea}}</h5>
@@ -49,7 +65,7 @@
                      <H3>TERMINADA</H3>
                     {{#each tasksStatus3}}
                     <a href="/tasks/task/{{idTarea}}" >
-                    <div class="card text-white bg-dark m-2 row" style="max-width: 18rem;">
+                    <div class="card text-black bg-light m-2 row" style="max-width: 18rem;">
                         <div class="card-header">{{nombreUsuario}}</div>
                         <div class="card-body">
                             <h5 class="card-title">{{tarea}}</h5>
@@ -69,12 +85,11 @@
                      <H3>EXPIRADA</H3>
                     {{#each tasksStatus4}}
                     <a href="/tasks/task/{{idTarea}}" >
-                    <div class="card text-white bg-dark m-2 row" style="max-width: 18rem;">
+                    <div class="card text-black bg-light m-2 row" style="max-width: 18rem;">
                         <div class="card-header">{{nombreUsuario}}</div>
                         <div class="card-body">
                             <h5 class="card-title">{{tarea}}</h5>
                             <p class="card-text text-uppercase">Importancia: {{importancia}}</p>
-                        
                         </div>
                     </div>
                     </a> 

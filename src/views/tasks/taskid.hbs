@@ -1,10 +1,12 @@
 <div>
-                     
+    <div class="container">
+        <div class="row">
+            <div class="col">
                     {{#each idTask}}
-                    <a href="/tasks/task/{{idTarea}}" >
-                    <div class="card text-white bg-dark m-2 row" style="max-width: 18rem;">
-                        <div class="card-header">{{nombreUsuario}}</div>
-                        <div class="card-body">
+                  
+                    <div class="card text-black bg-light m-2 row" style="max-width: 28rem;">
+                        <div class="card-header text-center">{{nombreUsuario}}</div>
+                        <div class="card-body text">
                             <h5 class="card-title">{{tarea}}</h5>
                             <p class="card-text"> Creación: {{moment fechaCreacion }}</p>
                             <p class="card-text">{{descripcion}}</p>
@@ -13,12 +15,22 @@
                             <p class="card-text"> Fecha límite: {{moment fechaExpiracion }}</p>
                             <p class="card-text text-uppercase">Quedan {{timeago fechaExpiracion}}</p>
                         </div>
-                    </div>
-                    </a> 
-                    {{/each}}
-</div>
+                            <button class="text-black btn btn-primary m-1 col-3 align-self-center">
+                               <a class="text-white" href="/tasks/update/{{idTarea}}">Editar</a>
+                           </button> 
+                           <button class="btn btn-danger m-1 col-3 align-self-center">
+                               <a class="text-white" href="/tasks/delete/{{idTarea}}">Eliminar</a>
+                           </button> 
                            
-
+                       
+                    </div>
+                  
+                    {{/each}}
+            </div>
+        </div>
+    </div>
+</div> 
+    
 
 
 
