@@ -25,11 +25,12 @@ router.post('/add', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
+    const comentarios = await pool.query('SELECT * FROM comentarios AS a NATURAL JOIN usuario AS u NATURAL JOIN comentarios AS c');
     const tasksStatus1 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=1');
     const tasksStatus2 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=2');
     const tasksStatus3 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=3');
     const tasksStatus4 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=4');
-    res.render('tasks/list', { tasksStatus1, tasksStatus2, tasksStatus3, tasksStatus4 })
+    res.render('tasks/list', { tasksStatus1, tasksStatus2, tasksStatus3, tasksStatus4, comentarios });
 });
 router.get('/task/:idTarea', async (req, res) => {
     const {idTarea} = req.params;
@@ -63,5 +64,6 @@ router.post('/update/:idTarea', async (req, res) => {
     await pool.query('UPDATE tareas SET ? WHERE idTarea = ?',[upTask, idTarea]);
     res.redirect('/tasks');
 });
+
 
 module.exports = router;

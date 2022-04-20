@@ -1,20 +1,39 @@
 
-<div class="col-md-3 mx-auto">
- <div class="card card-body text-center">     
-       <a class="text-black" href="/tasks/add">Crea una Tarea</a>
-  </div>
+<div class="container-lg">
+    <div class="col-md-2 ">
+        <div class="container-sm m-3">
+             <a class="text-black" href="/tasks/add">
+       <div class="card card-body text-center bg-light">
+           <h6>Crea una Tarea</h6>
+       </div>
+       </a>
+        </div>
  </div>
-<div class="container">
    <div class="row">
         <div class="col">
-                 <div >
-                     <h3>notas</h3>
-                    {{#each tasksStatus1}}
-                    <a href="/tasks/task/{{idTarea}}" >
-                   
-                    </a>  
+                 <div class="bg-light card" >
+                     <h3 class="text-center">notas</h3>
+                     <div class="card-body">
+                            <form action="/tasks/addnote" method="POST">
+                        <div class="form-group">
+                            <label>Nota</label>
+                            <textarea name="noted" rows="3" class="form-control" placeholder="agrega una nota"></textarea>
+                        </div>        
+                            <div class=" d-grid gap-1">
+                                <button class=" t-2  btn btn-outline-success ">send</button>
+                            </div>   
+                    </form>
+                     </div>
+                    {{#each comentarios}}
+                    <div class="card text-black bg-light m-2 row" style="max-width: 18rem;">
+                        <div class="card-header">{{nombreUsuario}}</div>
+                        <div class="card-body">
+                            
+                            <p class="card-text text-uppercase">{{nota}}</p>  
+                        </div>  
+                    </div>  
                     {{/each}}
-  
+                    
                 </div>
                 <div>
             
