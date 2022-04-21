@@ -1,5 +1,6 @@
 const { format, register } = require('timeago.js') //Puede utilizar `import` para Javascript code.
-
+const helpers = {};
+const bcrypt = require('bcryptjs');
 register('es_ES', (number, index, total_sec) => [
     ['justo ahora', 'ahora mismo'],
     ['hace %s segundos', 'en %s segundos'],
@@ -19,7 +20,7 @@ register('es_ES', (number, index, total_sec) => [
 
 const timeago = timestamp => format(timestamp, 'es_ES');
 
-const helpers = {};
+
 
 helpers.moment = (timestamp) => {
     
@@ -60,5 +61,18 @@ helpers.actualDate = () => {
     return output;
 }
 
+helpers.encryptPassword = async (password) =>{
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+    return hash;
+ };
+ helpers.matchPassword = async (password, savedPassword)=>{
+    try{
+     await bcrypt.compare(password, savedPassword);
+    }
+    catch(e){
+     console.log(e);
+    }
+ };
 
 module.exports = helpers;

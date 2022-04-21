@@ -14,7 +14,7 @@ router.post('/signup',passport.authenticate('local.signup', {
 
 router.get('/profile', (req,res)=>{
     res.send('este es tu perfil');
-})
+});
 
 
 module.exports = router;
