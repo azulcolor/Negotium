@@ -23,8 +23,18 @@ router.post('/add', async (req, res) => {
     await pool.query('INSERT INTO tareas set ?', [newTask]);
     req.flash('success', 'La tarea ha sido creada');
     res.redirect('/tasks');
+});
+router.get('/addnota', async (req, res) => {
+    const { noted, idUser  } = req.body;
+    console.log(idUser);
+    const newnote = { 
+        nota:noted,
+        idUsuario:idUser
+    }
+    
+    await pool.query('INSERT INTO comentarios set ?', [newnote]);
+    res.redirect('/tasks/list');
 })
-
 router.get('/', async (req, res) => {
     const comentarios = await pool.query('SELECT * FROM comentarios AS a NATURAL JOIN usuario AS u NATURAL JOIN comentarios AS c');
     const tasksStatus1 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=1');

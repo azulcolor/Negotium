@@ -14,9 +14,10 @@
                  <div class="bg-light card" >
                      <h3 class="text-center">notas</h3>
                      <div class="card-body">
-                            <form action="/tasks/addnote" method="POST">
+                            <form action="/addnota" method="get">
                         <div class="form-group">
                             <label>Nota</label>
+                            <input type="hidden" value="{{user.idUsuario}}" name="idUser">
                             <textarea name="noted" rows="3" class="form-control" placeholder="agrega una nota"></textarea>
                         </div>        
                             <div class=" d-grid gap-1">
