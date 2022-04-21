@@ -24,7 +24,7 @@ router.post('/add', async (req, res) => {
     req.flash('success', 'La tarea ha sido creada');
     res.redirect('/tasks');
 });
-router.get('/addnota', async (req, res) => {
+router.post('/addnota', async (req, res) => {
     const { noted, idUser  } = req.body;
     console.log(idUser);
     const newnote = { 
