@@ -14,16 +14,16 @@
                  <div class="bg-light card" >
                      <h3 class="text-center">notas</h3>
                      <div class="card-body">
-                            <form action="/addnota" method="POST">
-                        <div class="form-group">
-                            <label>Nota</label>
-                            <input type="hidden" value="{{user.idUsuario}}" name="idUser">
-                            <textarea name="noted" rows="3" class="form-control" placeholder="agrega una nota"></textarea>
-                        </div>        
-                            <div class=" d-grid gap-1">
-                                <button class=" t-2  btn btn-outline-success ">send</button>
-                            </div>   
-                    </form>
+                            <form action="/tasks/addnota" method="POST">
+                                <div class="form-group">
+                                    <label>Nota</label>
+                                    <input type="hidden" value="{{user.idUsuario}}" name="idUser">
+                                    <textarea name="noted" rows="3" class="form-control" placeholder="agrega una nota"></textarea>
+                                </div>        
+                                    <div class=" d-grid gap-1">
+                                        <button class=" t-2  btn btn-outline-success ">send</button>
+                                    </div>   
+                            </form>
                      </div>
                     {{#each comentarios}}
                     <div class="card text-black bg-light m-2 row" style="max-width: 18rem;">

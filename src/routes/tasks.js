@@ -33,7 +33,7 @@ router.post('/addnota', async (req, res) => {
     }
     
     await pool.query('INSERT INTO comentarios set ?', [newnote]);
-    res.redirect('/tasks/list');
+    res.redirect('/tasks/');
 })
 router.get('/', async (req, res) => {
     const comentarios = await pool.query('SELECT * FROM comentarios AS a NATURAL JOIN usuario AS u NATURAL JOIN comentarios AS c');

@@ -1,0 +1,85 @@
+[33mcommit 8c6d201de09fe6376042cb742004526c09a07b87[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31mupstream/main[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Pastelin <lealpastelin@gmail.com>
+Date:   Thu Apr 21 03:47:37 2022 -0500
+
+    Version: Alertas
+
+[33mcommit fc61f5f459bcaf5e3d8591104b090c8997e060b5[m
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Thu Apr 21 02:49:45 2022 -0500
+
+    v6
+
+[33mcommit d763aa337b1138f38668c7b6ccfa2ae4cd61b061[m
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Wed Apr 20 22:17:57 2022 -0500
+
+    v5
+
+[33mcommit 5ed4e84219efd85b7ff2871eea2497b6bb2f2def[m
+Merge: 6cc8dc1 3287db2
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Wed Apr 20 02:34:48 2022 -0500
+
+    Merge branch 'main' of https://github.com/azulcolor/Negotium
+
+[33mcommit 6cc8dc1c91c28fc9f42359a0f8a650a3280da2e1[m
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Wed Apr 20 02:32:49 2022 -0500
+
+    v4
+
+[33mcommit 3287db20488d142f72bc5fc4cc665cfc4e1bba4a[m
+Author: Pastelin <lealpastelin@gmail.com>
+Date:   Wed Apr 20 02:25:59 2022 -0500
+
+    1.0.5
+
+[33mcommit aea2f123b7da9c5399e2b2f7db9daf0bc2a2839c[m
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Tue Apr 19 22:41:59 2022 -0500
+
+    v03
+
+[33mcommit ad2d2b81c26855941d4da9bbf2d693a79aed088f[m
+Merge: 64c0926 3242cdf
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Tue Apr 19 21:52:47 2022 -0500
+
+    Merge branch 'main' of https://github.com/azulcolor/Negotium
+
+[33mcommit 64c0926ba7dfb9afb9801894b4d151355adb43b5[m
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Tue Apr 19 21:49:26 2022 -0500
+
+    v2.01
+
+[33mcommit 3242cdf391b0e09e72b30cb3aea4d20d05c806d2[m
+Author: Pastelin <lealpastelin@gmail.com>
+Date:   Tue Apr 19 21:48:18 2022 -0500
+
+    1.0.3
+
+[33mcommit 6a8849506fbdc2d19b72c2c3106bff95d79e0998[m
+Author: JonathanValdes98 <jonathanvaldesantiago98@gmail.com>
+Date:   Tue Apr 19 21:11:53 2022 -0500
+
+    v1
+
+[33mcommit 034004f841a053f5eb9e67a2a09686cd07e65ed1[m[33m ([m[1;31mupstream/ramaprueba[m[33m, [m[1;31morigin/ramaprueba[m[33m)[m
+Author: Pastelin <lealpastelin@gmail.com>
+Date:   Tue Apr 19 02:57:56 2022 -0500
+
+    1.0.2
+
+[33mcommit 4cdad900864a9afc6b9d7808893f1c7b71837885[m
+Author: Pastelin <lealpastelin@gmail.com>
+Date:   Sat Apr 16 21:13:09 2022 -0500
+
+    1.0.1
+
+[33mcommit 9ba31534b4b29c65fd77387abb7a61c7cb79f737[m
+Author: Pastelin <lealpastelin@gmail.com>
+Date:   Sat Apr 16 19:48:05 2022 -0500
+
+    1.0.0
