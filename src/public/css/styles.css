@@ -4,3 +4,32 @@ a:link, a:visited, a:active {
 #tasklink {
     text-decoration:none;
 }
+body{
+    overflow: hidden;
+}
+
+.index{
+   width: 100vw;
+   height: 100vh;
+}
+.masthead{
+    color: white;
+    min-height: 2rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 6rem;
+    background: url('./img/negotium.png');
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.masthead a{
+    font-size: 1rem;
+    margin-bottom: 600px;
+
+}
+@media (min-width: 992px){
+    .masthead a {
+        font-size: 2rem;
+    }
+}

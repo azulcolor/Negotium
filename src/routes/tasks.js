@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
+const {isLoggedIn} = require('../lib/auth');
 
 
-router.get('/add', async function (req, res) {
+router.get('/add', isLoggedIn, async function (req, res) {
     const users = await pool.query('SELECT * FROM usuario')
     res.render('tasks/add', {users});
 })
 
-router.post('/add', async (req, res) => {
+router.post('/add',isLoggedIn, async (req, res) => {
     const { taskName, date, user, description, importance } = req.body;
     const newTask = { 
         
@@ -24,7 +25,7 @@ router.post('/add', async (req, res) => {
     req.flash('success', 'La tarea ha sido creada');
     res.redirect('/tasks');
 });
-router.post('/addnota', async (req, res) => {
+router.post('/addnota',isLoggedIn, async (req, res) => {
     const { noted, idUser  } = req.body;
     console.log(idUser);
     const newnote = { 
@@ -35,7 +36,7 @@ router.post('/addnota', async (req, res) => {
     await pool.query('INSERT INTO comentarios set ?', [newnote]);
     res.redirect('/tasks/');
 })
-router.get('/', async (req, res) => {
+router.get('/',isLoggedIn, async (req, res) => {
     const comentarios = await pool.query('SELECT * FROM comentarios AS a NATURAL JOIN usuario AS u NATURAL JOIN comentarios AS c');
     const tasksStatus1 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=1');
     const tasksStatus2 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=2');
@@ -43,7 +44,7 @@ router.get('/', async (req, res) => {
     const tasksStatus4 = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s where idStatus=4');
     res.render('tasks/list', { tasksStatus1, tasksStatus2, tasksStatus3, tasksStatus4, comentarios });
 });
-router.get('/task/:idTarea', async (req, res) => {
+router.get('/task/:idTarea',isLoggedIn, async (req, res) => {
     const {idTarea} = req.params;
     const idTask = await pool.query('SELECT * FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s WHERE idTarea = ?',[idTarea]);
     const date = await pool.query(`SELECT fechaCreacion FROM tareas WHERE idTarea = ?`, [idTarea] );
@@ -58,7 +59,7 @@ router.get('/delete/:idTarea', async (req, res)=>{
     res.redirect('/tasks');
     
 });
-router.get('/update/:idTarea', async (req, res)=>{
+router.get('/update/:idTarea',isLoggedIn, async (req, res)=>{
     const {idTarea} = req.params;
      const taskedit = await pool.query('SELECT *FROM tareas AS a NATURAL JOIN usuario AS u NATURAL JOIN status AS s WHERE idTarea = ?', [idTarea]);
      const users = await pool.query('SELECT * FROM usuario');
@@ -72,7 +73,7 @@ router.post('/', async (req, res) => {
     
 })
 
-router.post('/update/:idTarea', async (req, res) => {
+router.post('/update/:idTarea',isLoggedIn, async (req, res) => {
     const {idTarea} = req.params;
     
     const { date, user, description, importance, status } = req.body;
